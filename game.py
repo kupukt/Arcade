@@ -56,10 +56,10 @@ class FireFall(arcade.Window):
     def add_fire(self, delta_time: float):
        
 
-        # First, create the new enemy sprite
+        # Create the new fire sprite
         fire = MovingSprites("images/fireball.png")
 
-        # Set its position to a random height and off screen right
+        # Set its position to a random location off the top of the screen.
         fire.left = random.randint(0, self.width)
         fire.top = random.randint(self.height, self.height + 30)
 
@@ -82,7 +82,7 @@ class FireFall(arcade.Window):
     def on_key_press(self, key: int, modifiers: int):
         
         if key == arcade.key.Q:
-            # Quit immediately
+          
             arcade.close_window()
 
         if key == arcade.key.P:
@@ -103,12 +103,7 @@ class FireFall(arcade.Window):
             self.player.change_x = 350
 
     def on_key_release(self, key: int, modifiers: int):
-        """Undo movement vectors when movement keys are released
-
-        Arguments:
-            symbol {int} -- Which key was pressed
-            modifiers {int} -- Which modifiers were pressed
-        """
+        
         if (
             key == arcade.key.W
             or key == arcade.key.S
@@ -155,8 +150,7 @@ class FireFall(arcade.Window):
             self.player.left = 0
 
     def on_draw(self):
-        """Draw all game objects"""
-
+       
         arcade.start_render()
         self.all_sprites.draw()
 
